@@ -1,0 +1,27 @@
+package day02;
+
+import java.util.Scanner;
+
+public class Ex14_SwitchYeild {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("정수입력 :");
+		int num = sc.nextInt();
+		//입력받은 정수를 5로 나눈 나머지가
+		//2보다 작으면 '*'출력
+		//그렇지 않으면 '**'출력
+		//-switch문을 이용하시오
+		
+		String result = switch (num%5) {
+		case 0,1 -> "*";		
+			
+		default -> {
+			System.out.println("별 2개");
+			yield "**";
+		}
+		};
+		System.out.println(result);
+		sc.close();
+				
+	}
+}
