@@ -1,0 +1,33 @@
+package day06.Ex02_인터페이스;
+
+public class Drone implements RemoteControl {
+
+	int speed;
+	@Override
+	public void turnOn() {
+		System.out.println("Dron 전원을 켭니다.");
+	}
+
+	@Override
+	public void turnOff() {
+		System.out.println("Dron 전원을 끕니다.");
+	}
+
+	@Override
+	public void setSpeed(int speed) {
+		//최대속력을 초과하지 못하게 지정
+		if(speed>RemoteControl.MAX_SPEED) {
+			this.speed = RemoteControl.MAX_SPEED;
+			System.err.println("최대속력입니다.");
+		}
+		//최소속력 미만하지 못하게 지정
+		else if(speed<RemoteControl.MIN_SPEED){
+			this.speed = RemoteControl.MIN_SPEED;
+			System.err.println("최저속력입니다");
+		}
+		else {
+			this.speed = speed;
+		}
+		System.out.println("현재 속도 : "+this.speed);
+	}
+}
